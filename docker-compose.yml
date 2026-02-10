@@ -3,8 +3,6 @@ services:
     image: ${OPENCLAW_IMAGE}
     build: .
     restart: unless-stopped
-    env_file:
-      - .env
     environment:
       - HOME=/home/node
       - NODE_ENV=production
