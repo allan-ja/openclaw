@@ -1,7 +1,7 @@
 services:
   openclaw-gateway:
-    image: ${OPENCLAW_IMAGE}
-    build: .
+    image: ghcr.io/openclaw/openclaw:latest
+    # build: .
     restart: unless-stopped
     environment:
       - HOME=/home/node
@@ -14,8 +14,8 @@ services:
       - XDG_CONFIG_HOME=${XDG_CONFIG_HOME}
       - PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
-      - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
-      - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
+      - /root/.openclaw:/home/node/.openclaw
+      - /root/.openclaw/workspace:/home/node/.openclaw/workspace
     ports:
       # Recommended: keep the Gateway loopback-only on the VPS; access via SSH tunnel.
       # To expose it publicly, remove the `127.0.0.1:` prefix and firewall accordingly.
