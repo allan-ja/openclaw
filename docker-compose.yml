@@ -1,6 +1,6 @@
 services:
   openclaw-gateway:
-    image: ghcr.io/openclaw/openclaw:latest
+    image: ghcr.io/allan-ja/openclaw:main
     # build: .
     restart: unless-stopped
     environment:
